@@ -8,7 +8,8 @@ function linear(list, value) {
 	let result = false;
 	for (let i = 0; i < list.length; i++) {
 		if (list[i] === value) {
-			result = true
+			result = true;
+			break;
 		}
 	}
 
