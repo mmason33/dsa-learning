@@ -1,13 +1,16 @@
 # A Programmers Guide to Computer Science
 
 ### Notes
+
+#### Big-O & Algorithms
 - Algorithms are more general than programs. Programs usually implement Algorithms.
 - Asymptotic runtime - The rate at which the runtime grows compared to the size of the input.
 
 - Linear Algorithms - `O(n)` - total runtime is proportional to the number of items processed.
 - Quadratic Algorithms - `O(n^2) - Doing O(n) work O(n) times` - compare every element of collection to every other element in a collection.
 - Logrithmic Algorithms - `O(log n)`
-	- A logarithmic function is the opposite of an exponential function. When you say something grows exponentially, it’s being multiplied. When something grows logarithmically, it is being divided.
+	- [Logrithmic Time Space Complexity article](https://medium.com/better-programming/a-gentle-explanation-of-logarithmic-time-complexity-79842728a702)
+		- A logarithmic function is the opposite of an exponential function. When you say something grows exponentially, it’s being multiplied. When something grows logarithmically, it is being divided.
 	- Divide and conquer
 	- Involves havling input until desired result is reached
 	- Usual expectation is that the a given list of lenght `n` is sorted.
@@ -18,3 +21,51 @@
 	- Guessing a numeric passcode of length `n` assuming there are `10 digits (0-9)` the number of possible codes is `10^n`!
 
 - Generally computer scientists are interested in `Polynomial` solutions, particularly solutions that run in `Quadratic` time or better. Given a reasonable problem size, `Exponential` algorithms can be worthwhile.
+
+#### Data-structures
+
+##### Arrays
+- Stored sequentially
+- Indexed my numeric key
+- Key represents the offset from the starting location in memory
+- Retrieving or storing an element takes constant time or `O(1)`
+- Entire array takes `O(n)` space
+- All locations are offsets from the start, no space is allocated for pointers. Iterating over an array is likely to be noticably faster due to fewer cache misses.
+- The requirement for a contiguous(shared or touching) block of memory is not ideal when the number of elements is UNKNOWN - increasing the array size may involve copying the entire array to a different memory location and avoiding this by pre-allocating more space than needed is wasteful.
+- Another major issue is that inserting and deleting elements from an array is very time consuming `O(n)` because every element may need to be moved.
+- `Data structures implemented using arrays` - Stacks, Queues, Lists, Hash Tables, Heap and Priority Queues
+
+##### Linked Lists
+- Elements contain - a value and a pointer to the next node in the list
+- Linked List is represented by a pointer(head) pointing to the first node in the list
+- Finding a specific element(value) requires walking the list sequentially starting at the head
+- Finding an element in a Linked List is at worst `O(n)` time
+- Linked Lists can grow in size due to the fact that the nodes can be anywhere in memory. A Linked List can grow until available memory is exhausted.
+- Insertions and deletions can be done in `Constant Time - O(1)` if we have a pointer to the previous node
+
+##### Stacks
+- Elements can only be added or removed from the top(beginning) of the Stack
+- Follows `LIFO`(Last in first out)
+- Push/pop to add/remove and element from the Stack
+- Four basic operations - push(add item), pop(remove item), isEmpty(check if the Stack is empty) & size(length of the Stack) all done in constant `O(1)` time
+- Peek - look at the top item by popping and then pushing said item
+- Stackoverflow - pushing item to a full stack
+- Underflow - popping item from an empty stack
+- Do not allow for random access
+- Work well for maintaining a history of operations and backtracking
+
+##### Heaps
+- `Heap Ordering Property` - Heap is partially ordered based on the key of each element such that the highest/lowest priority element is always stored at the root
+- `Complete Binary Tree` - A Binary Tree is a tree data structure wherein each node has at most two “children.”
+- Only one element of a Head can be removed at a time
+- Min-Heap - The value of each node is no smaller than the value of its parent - The root node has the minimum value - A complete binary tree
+- Max-Heap - The value of each node is no larger that the value of its parent - The root node has the maximum value - A complete binary tree
+- Max-Heap will remove the maximum element
+- Min-Heap will remove the minimum element
+- If not specified when speaking of a Heap - usually then defaults to Binary Heap
+- Binary Heap - Complete binary tree that satisfies the Heap Ordering Property
+- Other Heaps - Leftist Heaps, Binomial Heaps, Fibonacci Heaps
+- Operations - find/peek(min/max), insert(push), extract/pop(min/max) and increase-key(change the nodes key and move it to it's new position in the graph)
+- Heap is created from a list of items in `O(n) linear` time and each Heap operation requires `O(log n) logrithmic` time
+
+##### Hash Tables
