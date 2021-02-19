@@ -69,3 +69,31 @@
 - Heap is created from a list of items in `O(n) linear` time and each Heap operation requires `O(log n) logrithmic` time
 
 ##### Hash Tables
+- Key value data structure
+- Hash function: converts key of an element to be place in the table then maps to the value of the element
+- For collisions - storing values by string length - "cat" & "dog" would both be a key "3" - we can handle this by using a bucket of objects represented by a LinkedList - this is called chaining
+- You may also search for an open location on the table - open addressing
+- With chaining - the size of the table is unlimited but performance will degrade as the number of elements in a given spot increases
+- Open Addressing has a fixed size once the maximum size has been reach no other elements can be inserted
+- How a table is setup depends on whether we want to minimize collisions(elements mapping to the same location) or storage space
+- Once the key has been hashed saving or retrieving the element takes `O(1) constant` time
+- With collisions Hash Tables do have the worst retrieval time at `O(n) linear` time when every element collides
+- Hash tables are used when
+	- We want fast access to unsorted data based on a key
+	- There exists a fast-running function for generating the key for each object
+- Hash tables are avoided when
+	- We need to support sorting
+	- The elements are not well distributed (that is manny elements map to few locations)
+	- When a common use case is to access a sequential block of items
+
+##### Sets & Posets
+- Set - unordered collection of unique items
+- Three core operations
+	- Union(S, T) - a set containing every element that belongs to at least one of set S and T
+		- Takes in set(S) and set(T) and returns set(U) containing all elements that occur in both sets
+	- Intersection(S, T) - set of elements that are contained in both set(S) and set(T)
+	- Difference(S, T) - every element contained in set(S) but not in set(T)
+- Subset(S, T) - returns boolean
+	- Returns true if set(S) is a subset of set(T) - every element in S is also an element of T
+	- If set(S) is a subset of set(T) and is not equal then it is a true subset
+
