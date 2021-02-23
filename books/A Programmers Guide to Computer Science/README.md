@@ -97,3 +97,50 @@
 	- Returns true if set(S) is a subset of set(T) - every element in S is also an element of T
 	- If set(S) is a subset of set(T) and is not equal then it is a true subset
 
+
+#### Graph Theory
+- The Seven Bridges of Konigsberg
+	- Konigsberg had a river that divided the city into four regions connected by seven bridges
+	- Is possible to take a walk through the city crossing every bridge exactly once?
+- Graphs are important in computer science because so many problems can be represented as graphs
+- Reducing a problem statement to an equivalent problem on a particular class of graph give us useful information about how difficult the problem will be to solve
+- Graphs represent relationships in a set of data
+- Vertices(represented usually by circles)
+- Edges(represented by lines between circles(vertices))
+- Two vertices are adjacent if there is an edge between them and non-adjacent if there is no edge between them
+- Subgraph(subset of data) - any number of vertices and edges that exist on the original graph
+- Graph representation
+	- Commonly graphs are represented at "n" vertices and "m" edges
+	- Representing graphs with adjancency lists
+	- Each vertex is stored with a list of the vertices to which it is adjacent
+	- Representing graphs with adjacency matrices
+	- Each matrix has the following properties:
+		- Every cell in the matrix is either 0 or 1
+		- The cell at position (i,j) is a 1 if and only if there exists an edge between vertices i and j. This is also true of the cell at position (j,i).
+		- As result of the fact above, the number of 1's in the matrix is double the number of edges in the graph
+		- The diagonal is always zero because no vertex has an edge to itself
+		- The matrix has n rows and n columns so it takes n^2 space.
+- Trees - A tree is simply a connected graph in which there are not cycles - acyclic
+	- Acyclic(aye | sick | lick) - acyclic graph has at most one path between any two vertices
+	- We pick up the tree at it's root then define the rest of the vertices by their relationship to the root
+	- Equivalent definitions for a tree:
+		- An acyclic graph where a simple(without repeated vertices) cycle will be formed if any edge is added
+		- A connected graph that will no longer be connected if any edge is removed
+		- A graph where any two vertices are connected by a unique simple path
+	- A tree node is either an internal node(if it has at least one child) or a leaf(if it does not)
+
+
+#### Data Structures on Graphs
+- Binary Search tree - is a rooted binary tree defined recursively as follows:
+	- The key of the root is greater than or equal to the key of its left child and less than or equal to the key of its right child(if any) - this is also true for the subtree rooted at every other node
+	- Operations take time proportional to the height of the tree, which is the length of the longest chain from the root(which has a height of zero) to a leaf
+	- Average case `O(log n)` and `O(n)` for the worst case(when each node has on child making the tree essentially a linked list)
+	- Can be implemented with a collection of linked nodes where each node has key and pointers to its left and right child and to its parent.
+- Searching a Binary Search Tree:
+	- Same idea as the Binary Search Alogrithm, `O(log n)` halving the input until the desired value is found
+	- Given a pointer to the root if the desired key is less than the root then we'll recurse to the left subtree(values are less than or equal to the root) or if the desired key is greater than the root we'll recurse to the right subtree(values are greater than or equal to the root)
+	- To find the minimum value of the tree we'll always recurse the left subtree
+	- Most commonly the runtime will be `O(log n)` with worst case of `O(n)`
+- Back to Heaps
+	- A rooted nearly complete binary tree where the key of the root is greater than the key of either of its children and this is recursively true for the subtree rooted at each child
+	- Nearly complete mean that the tree is completely filled except possibly on the lowest level which is filled from left to right
