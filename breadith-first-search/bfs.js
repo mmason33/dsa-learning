@@ -44,6 +44,7 @@ const tree = {
  * @param {object | map | hashtable} tree - Illustrative Binary Search Tree varying by language
  * @param {object | map | hashtable} root - Binary search tree root/entry point
  * @param {integer} target - The desired value
+ * O(V+E) where V is number of vertices in the graph and E is number of edges in the graph.
  */
 function bfs(tree, root, target) {
 	const queue = [];

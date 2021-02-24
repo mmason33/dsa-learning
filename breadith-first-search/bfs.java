@@ -1,5 +1,12 @@
 import java.util.ArrayList;
 
+/**
+ * Breadith-First-Search - Iterative bfs approach
+ * @param {object | map | hashtable} tree - Illustrative Binary Search Tree varying by language
+ * @param {object | map | hashtable} root - Binary search tree root/entry point
+ * @param {integer} target - The desired value
+ * O(V+E) where V is number of vertices in the graph and E is number of edges in the graph.
+ */
 public class BreadthFirstSearch {
 	class Root {
 		Node root;
