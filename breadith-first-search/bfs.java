@@ -28,29 +28,6 @@ public class BreadthFirstSearch {
 		}
 	}
 
-	public static void main(String[] args) {
-		try
-		{
-			BreadthFirstSearch obj = new BreadthFirstSearch ();
-			Root tree = obj.createTree();
-
-
-			int searchSuccess = obj.searchTree(tree.root, 12);
-
-			// prints 12
-			System.out.println(searchSuccess);
-
-			int searchFail = obj.searchTree(tree.root, 120);
-
-			// prints -1
-			System.out.println(searchFail);
-		}
-		catch (Exception e)
-		{
-			e.printStackTrace ();
-		}
-	}
-
 	public Root createTree() {
 		Root tree = new Root(
 			new Node(
@@ -99,5 +76,28 @@ public class BreadthFirstSearch {
 		}
 
 		return -1;
+	}
+
+	public static void main(String[] args) {
+		try
+		{
+			BreadthFirstSearch obj = new BreadthFirstSearch ();
+			Root tree = obj.createTree();
+
+
+			int searchSuccess = obj.searchTree(tree.root, 12);
+
+			// prints 12
+			System.out.println(searchSuccess);
+
+			int searchFail = obj.searchTree(tree.root, 120);
+
+			// prints -1
+			System.out.println(searchFail);
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace ();
+		}
 	}
 }
