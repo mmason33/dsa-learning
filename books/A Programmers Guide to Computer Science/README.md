@@ -164,3 +164,9 @@
 
 
 #### Sorting Algorithms
+- Bubble Sort
+	- Unlikely to be actually useful
+	- Given an array compare each pair of adjacent values and swap them if they are out of order
+	- After `n-1` iterations the largest value will be at the end of the array
+	- List is sorted with a total(worst case) runtime of `O(n^2)`
+	- If the list is sorted or close to sorted we can achieve `O(n)` runtime
