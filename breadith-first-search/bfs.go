@@ -2,6 +2,11 @@ package main
 
 import "fmt"
 
+// Root of the tree
+type Root struct {
+	root *Node
+}
+
 // tree node aka vertex
 type Node struct {
 	left  *Node
@@ -12,8 +17,8 @@ type Node struct {
 /**
  * Binary Search Tree
  */
-var tree map[int]*Node = map[int]*Node{
-	10: &Node{
+var tree Root = Root{
+	root: &Node{
 		value: 10,
 		left: &Node{
 			value: 4,
@@ -44,13 +49,22 @@ var tree map[int]*Node = map[int]*Node{
 	},
 }
 
+// Remove element of the array without mutating the position of the other elements
+func removeIndex(s []*Node, index int) []*Node {
+	return append(s[:index], s[index+1:]...)
+}
+
 /**
  * Breadith-First-Search - Iterative bfs approach
  * @param {object | map | hashtable} tree - Illustrative Binary Search Tree varying by language
  * @param {object | map | hashtable} root - Binary search tree root/entry point
  * @param {integer} target - The desired value
  */
-func bfs(tree map[int]*Node, root *Node, target int) int {
+func bfs(root *Node, target int) int {
+	if root == nil {
+		return -1
+	}
+
 	var queue []*Node
 	queue = append(queue, root)
 
@@ -70,9 +84,7 @@ func bfs(tree map[int]*Node, root *Node, target int) int {
 		}
 
 		// Essentially a shift/pop of the front of the queue/array
-		queue[0] = queue[len(queue)-1] // Copy last element to index 0.
-		queue[len(queue)-1] = &Node{}  // Erase last element (write zero value).
-		queue = queue[:len(queue)-1]   // shorten the slice
+		queue = removeIndex(queue, 0)
 	}
 
 	return -1
@@ -80,8 +92,14 @@ func bfs(tree map[int]*Node, root *Node, target int) int {
 
 func main() {
 	// prints 12
-	fmt.Println(bfs(tree, tree[10], 12))
+	fmt.Println(bfs(tree.root, 12))
 
 	// prints -1
-	fmt.Println(bfs(tree, tree[10], 120))
+	fmt.Println(bfs(tree.root, 120))
+
+	emptyTree := Root{
+		root: nil,
+	}
+	// prints -1
+	fmt.Println(bfs(emptyTree.root, 12))
 }
