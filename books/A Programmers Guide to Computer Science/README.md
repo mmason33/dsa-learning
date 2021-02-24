@@ -144,3 +144,23 @@
 - Back to Heaps
 	- A rooted nearly complete binary tree where the key of the root is greater than the key of either of its children and this is recursively true for the subtree rooted at each child
 	- Nearly complete mean that the tree is completely filled except possibly on the lowest level which is filled from left to right
+
+
+#### Graph Algorithms
+- Turn an arbitary graph into a search tree
+- Breadith First Search(BFS)
+	- Explore all vertices adjacent to the root
+	- Recursively explore all vertices to the roots neighbors that have not already been explored
+	- Discover all vertices that are at distance "k" from the root(usually denoted as "s" for source) before find any vertices at distance "k+1"
+	- The depth of each node of the tree is the minimum number of edges(the length of the shortest path) required to get to is from the source(s) in both the tree and original graph. This path can be found by following parent pointers until reaching source(s).
+	- BFS is a useful strategy when finding the shortest path between two vertices
+- Depth First Search(DFS)
+	- Start with a source vertex and recursively search the rest of the graph going as far as we can down one path before exploring any others
+	- In large datasets specifying a search depth is applicable
+- Shortest Paths
+	- single-source - Find the shortest path from a source node to every other node in the graph(shortest route from the fire station to every location in town)
+	- single-destination - Find the shortest path from every node in the graph to a destination node(shortest path to the hospital from any location)
+	- all-pairs - Find the shortest path between every pair of nodes in the graph(GPS find best route from anywhere to anywhere)
+
+
+#### Sorting Algorithms
