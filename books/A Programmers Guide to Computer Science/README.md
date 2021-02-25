@@ -170,3 +170,7 @@
 	- After `n-1` iterations the largest value will be at the end of the array
 	- List is sorted with a total(worst case) runtime of `O(n^2)`
 	- If the list is sorted or close to sorted we can achieve `O(n)` runtime
+- Insertion Sort
+	- Useful in practice for small data sets
+	- Works iteratively on an array
+	- For each element added to the end of the array either it is larger than all current elements or it can be moved to the correct place and all sorted elements after it are shifted down one spot
