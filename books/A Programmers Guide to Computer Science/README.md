@@ -174,3 +174,13 @@
 	- Useful in practice for small data sets
 	- Works iteratively on an array
 	- For each element added to the end of the array either it is larger than all current elements or it can be moved to the correct place and all sorted elements after it are shifted down one spot
+- Merge Sort
+	- Sorts list recursively
+	- Array is divided into multiple smaller sorted arrays
+	- Runtime `O(n log n)`
+	- In practice rather than dividing the sets down to single elements we stop dividing when the sets are reasonably small and use a more efficient algorithm (insertion sort)
+- Quick Sort
+	- Worst case runtime of `O(n^2)`
+	- Worse runtime than mergesort but in practice is normally 2-3 times faster when it hits its average-case runtime of `O(n log n)`
+	- Selecting a pviot and arranging all other elements of the array so that all elements to the left of the pivot are less than or equal to that pivot and all elements to the right are equal or greater
+	- It is then called recursively on the left and right segments of the array until reaching the base case(segment contains one or zero values)
